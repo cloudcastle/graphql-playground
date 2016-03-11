@@ -16,4 +16,6 @@
 !/log/.keep
 /tmp
 .idea
+app/assets/javascripts/*.bundle.js
+node_modules
 
