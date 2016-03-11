@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'graphql', to: 'graphql#create'
   get 'graphiql', to: 'graphiql#show'
 
 

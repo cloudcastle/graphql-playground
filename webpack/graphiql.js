@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
+require('../node_modules/graphiql/graphiql.css');
 
 function graphQLFetcher(graphQLParams) {
   return fetch(window.location.origin + '/graphql', {
@@ -15,3 +16,4 @@ ReactDOM.render(
   <GraphiQL fetcher={graphQLFetcher} />,
   document.getElementById('graphiql-container')
 );
+
