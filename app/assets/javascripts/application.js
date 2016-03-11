@@ -1,1 +1,1 @@
-//= require './main.bundle'
+//= require './index.bundle'
