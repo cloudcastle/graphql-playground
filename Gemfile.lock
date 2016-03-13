@@ -52,6 +52,8 @@ GEM
       activesupport (>= 4.1.0)
     graphql (0.11.1)
       parslet (~> 1.6)
+    graphql-relay (0.7.1)
+      graphql (~> 0.8)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -157,6 +159,7 @@ PLATFORMS
 
 DEPENDENCIES
   graphql
+  graphql-relay
   guard
   guard-webpack
   pg

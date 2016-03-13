@@ -45,7 +45,14 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel', // 'babel-loader' is also a legal name to reference
         query: {
-          presets: ['react', 'es2015']
+          presets: [
+            'react',
+            'es2015',
+            {
+              "plugins": [
+                __dirname + "/webpack/babelRelayPlugin.js"
+              ]
+            }]
         }
       },
       {test: /\.css$/, loader: "style-loader!css-loader"},
