@@ -5,6 +5,8 @@ gem 'pg'
 gem 'graphql'
 gem "graphql-relay"
 
+gem 'draper'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets

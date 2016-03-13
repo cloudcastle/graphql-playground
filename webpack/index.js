@@ -1,9 +1,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import {createHistory} from 'history';
-import { Router, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
+import { RelayRouter } from 'react-router-relay';
 import routes from './routes';
 
+import App from './components/app';
 
-ReactDom.render(<Router history={browserHistory}>{routes}</Router>, document.getElementById('app'));
 
+const UserQueries = {
+  user: () => Relay.QL`query { user(id: 1) { id, name, email } }`
+};
+
+
+ReactDom.render((
+  <RelayRouter history={browserHistory}>
+    <Route
+      path="/" component={App}
+      queries={UserQueries}
+    >
+    </Route>
+  </RelayRouter>
+), document.getElementById('app'));

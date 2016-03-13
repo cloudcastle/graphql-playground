@@ -10,4 +10,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+module.exports = Relay.createContainer(App, {
+  fragments: {
+    user: () => Relay.QL`
+      fragment on User {
+      }
+    `
+  }
+});
