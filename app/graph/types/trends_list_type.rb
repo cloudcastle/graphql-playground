@@ -1,8 +1,10 @@
 TrendsListType = GraphQL::ObjectType.define do
   name 'TrendList'
   description 'A root TrendsList entry'
-  field :summaries, types[TrendSummaryType] do
+  connection :summaries, TrendSummaryType.connection_type do
     description 'List of trend summaries'
-    resolve -> (obj, args, ctx) { obj.trends.map { |t| TrendSummaryDecorator.new(t) } }
+    resolve -> (obj, args, ctx) {
+      obj.trends.take(args['first']).map { |t| TrendSummaryDecorator.new(t) }
+    }
   end
 end
