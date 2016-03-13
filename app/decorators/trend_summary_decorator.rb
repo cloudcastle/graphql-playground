@@ -1,3 +1,3 @@
 class TrendSummaryDecorator < Draper::Decorator
-  delegate :name, :description
+  delegate :id, :name, :description
 end

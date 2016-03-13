@@ -5,11 +5,13 @@ import Navbar from './navbar';
 
 class App extends React.Component {
   render() {
-    const {user} = this.props;
+    const {user, trendsList} = this.props;
     return (
       <div>
-        <Navbar user={user}></Navbar>
+        <Navbar user={user}/>
         <h1>I'm the main app</h1>
+
+        {this.props.children}
       </div>
     )
   }
