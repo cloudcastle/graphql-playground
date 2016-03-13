@@ -6,17 +6,29 @@ import { RelayRouter } from 'react-router-relay';
 import routes from './routes';
 
 import App from './components/app';
+import TrendsList from './components/trends_list'
 
-const UserQueries = {
-  user: () => Relay.QL`query UserQuery { user }`
+const TrendsListQueries = {
+  trendsList: () => Relay.QL`query { trendsList }`
+};
+
+const AppQueries = {
+  user: () => Relay.QL`query { user }`
 };
 
 ReactDom.render((
   <RelayRouter history={browserHistory}>
     <Route
-      path="/" component={App}
-      queries={UserQueries}
+      component={App}
+      queries={AppQueries}
     >
+      <Route
+        path='/'
+        component={TrendsList}
+        queries={TrendsListQueries}
+      >
+      </Route>
+
     </Route>
   </RelayRouter>
 ), document.getElementById('app'));

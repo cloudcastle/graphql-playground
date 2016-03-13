@@ -2,10 +2,10 @@ QueryType = GraphQL::ObjectType.define do
   name 'Query'
   description 'The query root of this schema. See available queries.'
 
-  field :trends, types[TrendSummaryType] do
+  field :trendsList, TrendsListType do
     description 'List of trends available to the user'
     resolve -> (obj, args, ctx) {
-      Trend.all.map { |trend| TrendSummaryDecorator.new(trend) }
+      TrendsListService.new
     }
   end
 

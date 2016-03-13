@@ -1,14 +1,15 @@
 import React from 'react';
 import Relay from 'react-relay';
 
+import Navbar from './navbar';
+
 class App extends React.Component {
   render() {
-    const {name, email} = this.props.user.profile;
+    const {user} = this.props;
     return (
       <div>
+        <Navbar user={user}></Navbar>
         <h1>I'm the main app</h1>
-        <p>Name: {name}</p>
-        <p>E-mail: {email}</p>
       </div>
     )
   }
@@ -18,10 +19,7 @@ export default Relay.createContainer(App, {
   fragments: {
     user: () => Relay.QL`
       fragment on User {
-        profile {
-          name,
-          email
-        }
+        ${Navbar.getFragment('user')}
       }
     `
   }
