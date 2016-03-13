@@ -1,3 +1,9 @@
-import Panda from './panda';
+import React from 'react';
+import ReactDom from 'react-dom';
+import {createHistory} from 'history';
+import { Router, browserHistory } from 'react-router'
+import routes from './routes';
 
-const p = new Panda();
+
+ReactDom.render(<Router history={browserHistory}>{routes}</Router>, document.getElementById('app'));
+
