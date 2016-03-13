@@ -7,11 +7,9 @@ import routes from './routes';
 
 import App from './components/app';
 
-
 const UserQueries = {
-  user: () => Relay.QL`query { user(id: 1) { id, name, email } }`
+  user: () => Relay.QL`query UserQuery { user }`
 };
-
 
 ReactDom.render((
   <RelayRouter history={browserHistory}>
