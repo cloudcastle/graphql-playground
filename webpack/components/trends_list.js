@@ -4,20 +4,22 @@ import TrendSummary from './trend_summary';
 
 class TrendsList extends React.Component {
   render() {
-    const {summaries} = this.props.trendsList;
+    return <ul>{this._renderSummaries()}</ul>
+  }
 
-    return (
-      <ul>
-      { summaries.edges.map(summary => <TrendSummary trendSummary={summary.node} key={summary.node.id}/>)}
-      </ul>
-    );
+  _renderSummaries() {
+    return this.props.trendsList.summaries.edges.map(edge => {
+      const summary = edge.node;
+      // TODO: how can we avoid touching __dataID__?
+      return <TrendSummary trendSummary={summary} key={summary.__dataID__}/>;
+    });
   }
 }
 
 export default Relay.createContainer(TrendsList, {
   fragments: {
     trendsList: () => Relay.QL`
-      fragment on TrendList {
+      fragment on TrendsList {
         summaries(first: 2) {
           edges {
             node {

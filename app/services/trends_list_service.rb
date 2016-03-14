@@ -1,5 +1,7 @@
 class TrendsListService
-  def trends
-    Trend.all
+  def trends(args)
+    Trend
+        .limit(args['first'])
+        .map { |t| TrendSummaryDecorator.new(t) }
   end
 end

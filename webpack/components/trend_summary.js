@@ -14,6 +14,7 @@ export default Relay.createContainer(TrendSummary, {
       fragment on TrendSummary {
         id
         name
+        description
       }
     `
   }
